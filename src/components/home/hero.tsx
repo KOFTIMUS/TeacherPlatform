@@ -5,7 +5,17 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 
-function Hero() {
+interface HeroProps {
+  badge?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+function Hero({
+  badge = "Güvenilir Öğretmen Platformu",
+  title = "Sana en uygun öğretmeni kolayca bul",
+  subtitle = "Binlerce alanında uzman öğretmen arasından ihtiyacına göre seç, hemen ders almaya başla.",
+}: HeroProps) {
   return (
     <Section
       spacing="loose"
@@ -15,7 +25,7 @@ function Hero() {
       <Container size="xl">
         <div className="flex flex-col items-center gap-8 text-center">
           <Badge variant="outline" size="lg">
-            Güvenilir Öğretmen Platformu
+            {badge}
           </Badge>
 
           <div className="flex max-w-3xl flex-col gap-4">
@@ -23,15 +33,11 @@ function Hero() {
               id="hero-heading"
               className="text-4xl font-semibold tracking-tight md:text-5xl"
             >
-              Sana en uygun öğretmeni{" "}
-              <span className="text-foreground-muted">
-                kolayca bul
-              </span>
+              {title}
             </h1>
 
             <p className="text-lg text-foreground-muted md:text-xl">
-              Binlerce alanında uzman öğretmen arasından ihtiyacına göre seç,
-              hemen ders almaya başla.
+              {subtitle}
             </p>
           </div>
 
