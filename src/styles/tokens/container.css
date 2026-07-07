@@ -1,0 +1,11 @@
+:root {
+  --ds-container-sm: 640px;
+  --ds-container-md: 768px;
+  --ds-container-lg: 1024px;
+  --ds-container-xl: 1280px;
+  --ds-container-2xl: 1400px;
+
+  --ds-container-padding-mobile: var(--ds-space-4);
+  --ds-container-padding-tablet: var(--ds-space-6);
+  --ds-container-padding-desktop: var(--ds-space-8);
+}

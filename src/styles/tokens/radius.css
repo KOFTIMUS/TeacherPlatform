@@ -1,0 +1,6 @@
+:root {
+  --ds-radius-sm: 8px;
+  --ds-radius-md: 12px;
+  --ds-radius-lg: 16px;
+  --ds-radius-full: 9999px;
+}

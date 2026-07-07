@@ -1,0 +1,32 @@
+:root {
+  --ds-font-family-sans:
+    var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --ds-font-family-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --ds-text-xs: 0.75rem;
+  --ds-text-sm: 0.875rem;
+  --ds-text-base: 1rem;
+  --ds-text-lg: 1.125rem;
+  --ds-text-xl: 1.25rem;
+  --ds-text-2xl: 1.5rem;
+  --ds-text-3xl: 1.875rem;
+  --ds-text-4xl: 2.25rem;
+  --ds-text-5xl: 3rem;
+
+  --ds-font-weight-normal: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
+
+  --ds-leading-tight: 1.25;
+  --ds-leading-normal: 1.5;
+  --ds-leading-relaxed: 1.625;
+
+  --ds-tracking-tight: -0.025em;
+  --ds-tracking-normal: 0;
+  --ds-tracking-wide: 0.025em;
+
+  --ds-duration-fast: 100ms;
+  --ds-duration-default: 150ms;
+  --ds-duration-moderate: 200ms;
+  --ds-duration-slow: 300ms;
+}

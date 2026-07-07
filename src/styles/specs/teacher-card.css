@@ -1,0 +1,30 @@
+/*
+ * Teacher Card Standard
+ * All teacher cards share identical structure, height, and content alignment.
+ * Used by UI Kit (Module 3) — do not deviate from these values.
+ */
+:root {
+  --ds-teacher-card-min-height: 320px;
+  --ds-teacher-card-min-height-desktop: 340px;
+  --ds-teacher-card-padding: var(--ds-space-6);
+  --ds-teacher-card-padding-compact: var(--ds-space-4);
+  --ds-teacher-card-gap: var(--ds-space-6);
+  --ds-teacher-card-radius: var(--ds-radius-md);
+  --ds-teacher-card-border: 1px solid var(--ds-color-border);
+  --ds-teacher-card-shadow: var(--ds-shadow-xs);
+
+  --ds-teacher-card-avatar-size: 48px;
+  --ds-teacher-card-title-size: var(--ds-text-lg);
+  --ds-teacher-card-title-weight: var(--ds-font-weight-semibold);
+  --ds-teacher-card-body-min-height: 3rem;
+  --ds-teacher-card-description-lines: 2;
+
+  --ds-teacher-card-footer-gap: var(--ds-space-4);
+  --ds-teacher-card-button-min-height: 44px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --ds-teacher-card-min-height: var(--ds-teacher-card-min-height-desktop);
+  }
+}

@@ -1,0 +1,61 @@
+:root {
+  /* Primary — slate-800 base, slate-900 hover */
+  --ds-color-primary: oklch(0.279 0.041 260.031);
+  --ds-color-primary-hover: oklch(0.208 0.042 265.755);
+  --ds-color-primary-foreground: oklch(1 0 0);
+
+  /* Secondary */
+  --ds-color-secondary: oklch(0.968 0.007 247.896);
+  --ds-color-secondary-foreground: oklch(0.279 0.041 260.031);
+
+  /* Muted */
+  --ds-color-muted: oklch(0.984 0.003 247.858);
+  --ds-color-muted-foreground: oklch(0.554 0.046 257.417);
+
+  /* Semantic */
+  --ds-color-success: oklch(0.596 0.145 163.225);
+  --ds-color-success-subtle: oklch(0.962 0.044 156.743);
+  --ds-color-warning: oklch(0.666 0.179 58.318);
+  --ds-color-warning-subtle: oklch(0.98 0.045 95.445);
+  --ds-color-danger: oklch(0.577 0.245 27.325);
+  --ds-color-danger-subtle: oklch(0.971 0.013 17.38);
+  --ds-color-info: oklch(0.546 0.215 262.881);
+  --ds-color-info-subtle: oklch(0.97 0.014 254.604);
+
+  /* Border */
+  --ds-color-border: oklch(0.929 0.013 255.508);
+  --ds-color-border-subtle: oklch(0.968 0.007 247.896);
+
+  /* Surface & text */
+  --ds-color-background: oklch(1 0 0);
+  --ds-color-background-subtle: oklch(0.984 0.003 247.858);
+  --ds-color-foreground: oklch(0.208 0.042 265.755);
+  --ds-color-foreground-muted: oklch(0.554 0.046 257.417);
+  --ds-color-foreground-subtle: oklch(0.704 0.04 256.788);
+
+  /* Focus */
+  --ds-color-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --ds-color-primary: oklch(0.929 0.013 255.508);
+  --ds-color-primary-hover: oklch(0.984 0.003 247.858);
+  --ds-color-primary-foreground: oklch(0.208 0.042 265.755);
+
+  --ds-color-secondary: oklch(0.279 0.041 260.031);
+  --ds-color-secondary-foreground: oklch(0.984 0.003 247.858);
+
+  --ds-color-muted: oklch(0.279 0.041 260.031);
+  --ds-color-muted-foreground: oklch(0.704 0.04 256.788);
+
+  --ds-color-border: oklch(1 0 0 / 10%);
+  --ds-color-border-subtle: oklch(1 0 0 / 5%);
+
+  --ds-color-background: oklch(0.129 0.042 264.695);
+  --ds-color-background-subtle: oklch(0.208 0.042 265.755);
+  --ds-color-foreground: oklch(0.984 0.003 247.858);
+  --ds-color-foreground-muted: oklch(0.704 0.04 256.788);
+  --ds-color-foreground-subtle: oklch(0.554 0.046 257.417);
+
+  --ds-color-ring: oklch(0.551 0.027 264.364);
+}
