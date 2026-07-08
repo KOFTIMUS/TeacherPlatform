@@ -29,3 +29,12 @@ export { Textarea, type TextareaProps } from "./textarea";
 export { SkeletonCard, type SkeletonCardProps } from "./skeleton-card";
 export { SkeletonTable, type SkeletonTableProps } from "./skeleton-table";
 export { ErrorState, type ErrorStateProps } from "./error-state";
+export {
+  FormFeedback,
+  type FormFeedbackProps,
+  type FormFeedbackVariant,
+} from "./form-feedback";
+export {
+  StepIndicator,
+  type StepIndicatorProps,
+} from "./step-indicator";
