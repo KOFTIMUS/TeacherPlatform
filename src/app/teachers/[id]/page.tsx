@@ -1,28 +1,44 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
 import type { Metadata } from "next";
 
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { teachers } from "@/lib/data/teachers";
+import { prisma } from "@/lib/prisma";
 
 interface PageProps {
   params: Promise<{ id: string }>;
 }
 
 export async function generateStaticParams() {
-  return teachers.map((teacher) => ({ id: teacher.id }));
+  const teachers = await prisma.teacher.findMany({
+    select: {
+      id: true,
+    },
+  });
+
+  return teachers.map((teacher) => ({
+    id: teacher.id,
+  }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const teacher = teachers.find((t) => t.id === id);
+
+  const teacher = await prisma.teacher.findUnique({
+    where: {
+      id,
+    },
+  });
 
   if (!teacher) {
-    return { title: "Öğretmen Bulunamadı | Teacher Platform" };
+    return {
+      title: "Öğretmen Bulunamadı | Teacher Platform",
+    };
   }
 
   return {
@@ -47,7 +63,12 @@ function StarIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export default async function TeacherDetailPage({ params }: PageProps) {
   const { id } = await params;
-  const teacher = teachers.find((t) => t.id === id);
+
+  const teacher = await prisma.teacher.findUnique({
+    where: {
+      id,
+    },
+  });
 
   if (!teacher) {
     notFound();
@@ -60,7 +81,6 @@ export default async function TeacherDetailPage({ params }: PageProps) {
     <Section spacing="loose" aria-labelledby="teacher-heading">
       <Container size="md">
         <div className="flex flex-col gap-8">
-          {/* Geri dönüş linki */}
           <Link
             href="/teachers"
             className="inline-flex items-center gap-1.5 text-sm text-foreground-muted transition-colors hover:text-foreground"
@@ -81,9 +101,7 @@ export default async function TeacherDetailPage({ params }: PageProps) {
             Öğretmenlere Dön
           </Link>
 
-          {/* Profil başlığı */}
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
-            {/* Avatar */}
             <div className="relative size-24 shrink-0 overflow-hidden rounded-full border border-border bg-background-subtle">
               {teacher.avatarUrl ? (
                 <Image
@@ -95,16 +113,12 @@ export default async function TeacherDetailPage({ params }: PageProps) {
                   priority
                 />
               ) : (
-                <span
-                  className="flex size-full items-center justify-center text-2xl font-semibold text-foreground-muted"
-                  aria-hidden="true"
-                >
+                <span className="flex size-full items-center justify-center text-2xl font-semibold text-foreground-muted">
                   {teacher.name.charAt(0).toUpperCase()}
                 </span>
               )}
             </div>
 
-            {/* İsim, branş, puan */}
             <div className="flex flex-col gap-3">
               <div className="flex flex-col gap-2">
                 <h1
@@ -113,6 +127,7 @@ export default async function TeacherDetailPage({ params }: PageProps) {
                 >
                   {teacher.name}
                 </h1>
+
                 <Badge variant="secondary" size="default">
                   {teacher.subject}
                 </Badge>
@@ -130,25 +145,31 @@ export default async function TeacherDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Ayırıcı */}
           <hr className="border-border" />
 
-          {/* Açıklama */}
           <div className="flex flex-col gap-2">
-            <h2 className="text-base font-semibold text-foreground">Hakkında</h2>
+            <h2 className="text-base font-semibold text-foreground">
+              Hakkında
+            </h2>
+
             <p className="text-sm leading-relaxed text-foreground-muted">
               {teacher.bio}
             </p>
           </div>
 
-          {/* Ücret */}
           <div className="flex flex-col gap-2">
-            <h2 className="text-base font-semibold text-foreground">Ücret</h2>
+            <h2 className="text-base font-semibold text-foreground">
+              Ücret
+            </h2>
+
             <div className="flex items-baseline gap-1">
               <span className="text-xl font-semibold text-foreground">
                 {teacher.hourlyRate.toLocaleString("tr-TR")} ₺
               </span>
-              <span className="text-sm text-foreground-subtle">/ saat</span>
+
+              <span className="text-sm text-foreground-subtle">
+                / saat
+              </span>
             </div>
           </div>
         </div>
