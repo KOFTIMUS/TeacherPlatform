@@ -1,5 +1,5 @@
 "use server";
-
+import { createSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { comparePassword } from "@/lib/auth";
 
@@ -25,7 +25,7 @@ export async function loginUser(data: {
   if (!passwordMatch) {
     throw new Error("Şifre hatalı.");
   }
-
+  await createSession(user.id);
   return {
     id: user.id,
     name: user.name,
