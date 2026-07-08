@@ -10,8 +10,10 @@ function TeacherFilters() {
     setSearch,
     subject,
     setSubject,
-    sort,
-    setSort,
+    minRating,
+    setMinRating,
+    priceRange,
+    setPriceRange,
   } = useTeacherFilters();
 
   return (
@@ -31,17 +33,17 @@ function TeacherFilters() {
           aria-label="Branş seç"
         >
           <option value="all">Tüm Branşlar</option>
-          <option value="matematik">Matematik</option>
-          <option value="fizik">Fizik</option>
-          <option value="kimya">Kimya</option>
-          <option value="turkce">Türkçe</option>
-          <option value="ingilizce">İngilizce</option>
-          <option value="yazilim">Yazılım</option>
+          <option value="Matematik">Matematik</option>
+          <option value="Fizik">Fizik</option>
+          <option value="Kimya">Kimya</option>
+          <option value="Türkçe">Türkçe</option>
+          <option value="İngilizce">İngilizce</option>
+          <option value="Yazılım Geliştirme">Yazılım</option>
         </Select>
 
         <Select
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
+          value={minRating}
+          onChange={(e) => setMinRating(e.target.value)}
           aria-label="Minimum puan seç"
         >
           <option value="0">Tümü</option>
@@ -51,8 +53,8 @@ function TeacherFilters() {
         </Select>
 
         <Select
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
+          value={priceRange}
+          onChange={(e) => setPriceRange(e.target.value)}
           aria-label="Saatlik ücret seç"
         >
           <option value="all">Tümü</option>
