@@ -6,14 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 export interface TeacherCardProps {
   id: string;
@@ -56,7 +54,6 @@ function TeacherCard({
   return (
     <Card className="flex flex-col">
       <CardHeader className="flex flex-row items-start gap-4">
-        {/* Avatar */}
         <div className="relative size-14 shrink-0 overflow-hidden rounded-full border border-border bg-background-subtle">
           {avatarUrl ? (
             <Image
@@ -76,7 +73,6 @@ function TeacherCard({
           )}
         </div>
 
-        {/* İsim ve branş */}
         <div className="flex min-w-0 flex-col gap-1">
           <h3 className="truncate text-base font-semibold leading-snug text-foreground">
             {name}
@@ -88,12 +84,10 @@ function TeacherCard({
       </CardHeader>
 
       <CardContent className="flex flex-col gap-4">
-        {/* Kısa açıklama */}
         <p className="line-clamp-3 text-sm leading-relaxed text-foreground-muted">
           {bio}
         </p>
 
-        {/* Puan ve değerlendirme */}
         <div className="flex items-center gap-1.5">
           <StarIcon className="size-4 text-foreground" />
           <span className="text-sm font-medium text-foreground">
@@ -104,7 +98,6 @@ function TeacherCard({
           </span>
         </div>
 
-        {/* Saatlik ücret */}
         <div className="flex items-baseline gap-1">
           <span className="text-base font-semibold text-foreground">
             {hourlyRate.toLocaleString("tr-TR")} ₺
@@ -116,8 +109,8 @@ function TeacherCard({
       <CardFooter className="mt-auto">
         <Link
           href={`/teachers/${id}`}
-          className={cn(buttonVariants({ variant: "outline", size: "default" }), "w-full")}
           aria-label={`${name} profilini gör`}
+          className="inline-flex w-full items-center justify-center rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-background-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Profili Gör
         </Link>
