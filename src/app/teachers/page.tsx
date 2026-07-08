@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
+import { TeacherCard } from "@/components/teacher";
+import { TeacherFilters } from "@/components/teacher/teacher-filters";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { TeacherCard } from "@/components/teacher";
 import { teachers } from "@/lib/data/teachers";
 
 export const metadata: Metadata = {
@@ -23,11 +24,14 @@ export default function TeachersPage() {
             >
               Öğretmenler
             </h1>
+
             <p className="max-w-2xl text-lg text-foreground-muted">
               Alanında uzman ve doğrulanmış öğretmenler arasından ihtiyacına
               uygun eğitmeni seç.
             </p>
           </div>
+
+          <TeacherFilters />
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {teachers.map((teacher) => (
