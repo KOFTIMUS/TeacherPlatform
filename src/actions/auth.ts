@@ -2,6 +2,8 @@
 
 import { prisma } from "@/lib/prisma";
 import { hashPassword } from "@/lib/auth";
+import { deleteSession } from "@/lib/session";
+
 
 export async function registerUser(data: {
   name: string;
@@ -18,7 +20,9 @@ export async function registerUser(data: {
     throw new Error("Bu email zaten kayıtlı.");
   }
 
+
   const hashedPassword = await hashPassword(data.password);
+
 
   const user = await prisma.user.create({
     data: {
@@ -28,9 +32,16 @@ export async function registerUser(data: {
     },
   });
 
+
   return {
     id: user.id,
     email: user.email,
     name: user.name,
   };
+}
+
+
+
+export async function logoutUser() {
+  await deleteSession();
 }
