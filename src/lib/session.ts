@@ -1,6 +1,7 @@
-import { cookies } from "next/headers";
-import { prisma } from "@/lib/prisma";
 import crypto from "crypto";
+import { cookies } from "next/headers";
+
+import { prisma } from "@/lib/prisma";
 
 const SESSION_COOKIE = "teacher_platform_session";
 
@@ -25,7 +26,6 @@ export async function createSession(userId: string) {
   });
 }
 
-
 export async function getSessionUser() {
   const cookieStore = await cookies();
 
@@ -40,13 +40,18 @@ export async function getSessionUser() {
       id: token,
     },
     include: {
-      user: true,
+      user: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+        },
+      },
     },
   });
 
   return session?.user ?? null;
 }
-
 
 export async function deleteSession() {
   const cookieStore = await cookies();

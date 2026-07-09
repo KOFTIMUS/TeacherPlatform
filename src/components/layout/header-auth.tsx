@@ -13,9 +13,7 @@ interface HeaderAuthProps {
     name: string;
     email: string;
   } | null;
-
   mobile?: boolean;
-
   onClick?: () => void;
 }
 
